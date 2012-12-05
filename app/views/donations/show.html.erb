@@ -1,0 +1,21 @@
+
+
+<h2> All donations </h2>
+
+<table>
+	<tr>
+        <th> UserId    </th>
+        <th> Amount   </th>
+        <th>  Donatorid </th>
+        <th> date  </th>
+      </tr>
+
+<% @donations.each do |don| %> 
+        <tr>
+          <td><%= don.user_id %></td>
+          <td><%= don.amount %></td>
+          <td><%= don.donator_id %></td>
+          <td><%= don.date %></td> 
+        </tr>
+      <% end %>	  
+</table>

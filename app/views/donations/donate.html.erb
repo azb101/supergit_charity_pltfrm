@@ -1,0 +1,40 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#amount").val(0);
+		
+		
+		$("#amount").change(function(){
+			var cur = $("#amount").val();
+			
+			if(cur < 0 ){
+				$("#amount").val(0);
+			}	
+		});
+	});
+</script>
+<br />
+
+
+
+<div class="box post">
+	<div style="margin:10px;">
+		<h2> <%=  current_user.name %> <%= current_user.surname %>(<%= current_user.points %>)  </h2>
+	
+		<%= form_tag( {:controller => "donations", :action => "save"}, :method => "get" )%>
+			<p> 
+					<%= label_tag :donator_id %>
+					 <%= select_tag "donator_id", options_from_collection_for_select(@d_list, "id", "name") %>				 
+			</p>
+			<p>
+					<%= label_tag :amount %>
+					<%= number_field_tag :amount, :in => 1...@maximum%> pts  
+			</p>
+			
+		
+			<p class="button">  <%= submit_tag " Confirm " %> </p>
+	</div>
+</div>
+
+
+
+

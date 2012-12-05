@@ -1,0 +1,17 @@
+ <table class="table">
+      <tr>
+        <th> Email    </th>
+        <th> Name     </th>
+        <th>  Surname </th>
+        <th> Points   </th>
+      </tr>
+
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.surname %></td>
+          <td><%= user.points %></td> 
+        </tr>
+      <% end %>
+    </table>

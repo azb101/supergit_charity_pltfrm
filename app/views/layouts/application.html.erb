@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>	 <%= @title %>	</title>		
+	  <%= stylesheet_link_tag  "style", "superfish", "easySlider", "pagenavi-css" %>
+	  <%= javascript_include_tag "superfish", "easySlider1.5", "hoverintent", "jquery", "script", "application" %>
+	  <%= csrf_meta_tags %>  
+</head>
+
+<body>
+    <div id="page">
+        <div class="header_bg"  style="margin-bottom: 10px;">
+            <div class="header_bg_resize">
+				<br />
+				<br />
+                <div id="header">  
+                   <div id="nav" style="float:right; width:250px; background:azure;" class="topnav">				   
+                        	<div id="auth">
+								  <% if current_user %>
+												<span style="margin-bottom:20px;"> 
+													Hello , <%= current_user.name %>.
+												</span><br />
+												<span>
+												<%= link_to " Logout ", log_out_path %>
+												<span>
+										  <% else %>
+												<span style="margin-bottom:20px;"> 
+													<%= link_to " Login ", log_in_path %>  or  
+												</spant><br />
+												<span>
+													<%= link_to " Register ", sign_up_path %>												
+												</span>
+								   <% end %>
+						   </div>
+                    </div>
+
+					 
+                    
+                    <div class="topnav" style="float:left;">
+                        <ul>
+                            <li class="page_item page-item-1"><%= link_to "Main",    :controller=>"pages", :action=>"main" %> </li>
+                            <li class="page_item page-item-1"><%= link_to "Profile", :controller=>"pages", :action=>"profile" %> </li>
+                            <li class="page_item page-item-1"><%= link_to "Play",    :controller=>"pages", :action=>"play" %></li>
+                            <li class="page_item page-item-1"><%= link_to "People",  :controller=>"pages", :action=>"people" %></li>
+                            <li class="page_item page-item-1"><%= link_to "About",   :controller=>"pages", :action=>"about" %></li>
+							<li class="page_item page-item-1"><%= link_to " ____ TEMPO USER SHOW",   :controller=>"users", :action=>"show" %></li>
+                        </ul>
+						
+                        <div class="clr">
+                        </div>
+                    </div>
+                </div>
+                <!--/nav1-->
+                <div class="clr">
+                </div>
+            </div>
+        </div>
+        <!--/header -->
+      
+      
+        
+        <div class="body_bg">
+            <div class="body_bg_resize">
+                <div id="columns">
+						
+                    <div id="centercol">
+						<div class="back_white">
+							<div class="box post" id="post-41">
+								<div class="content">
+									<div id="Message" style="background: #fff; text-font: red;">
+										<% flash.each do |name, msg| %>
+											<%= content_tag :div, msg, :id => "flash_#{name}" %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+					
+						<%= yield %>
+					</div>
+					
+					
+					
+					
+					
+                    <div id="rightcol">
+                        <div class="box">
+                            <div class="content">
+                                <div class="rss">
+                                    <a href="#" class="big">Rss Feed</a>
+                                    <ul>
+                                        <li><a href="#" title="Subscribe To Our Comments RSS Feed" target="_blank">Comments</a>
+                                            Feed or use <a href="#" title="Subscribe To Receive Email Updates" target="_blank">E-mail</a>
+                                            or <a href="#" title="Subscribe To Our Posts RSS Feed" target="_blank">Posts</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clr">
+                                </div>
+                            </div>
+                            <!--/rss -->
+                        </div>
+                        <div class="clr">
+                        </div>
+                        <!--/box -->
+                        <div class="box ads">
+                            <div class="wtitle">
+                                <h2>
+                                    Ads </h2>
+                            </div>
+                            <div class="content">
+                                <a href="#" title="themeforest" target="_blank"><%= image_tag "banner_1.jpg", :alt=>"advert",:size=>"110x110" %></a>
+								<a href="#" title="themeforest" target="_blank"><%= image_tag "banner_2.jpg", :alt=>"advert",:size=>"110x110" %></a>
+								<a href="#" title="themeforest" target="_blank"><%= image_tag "banner_3.jpg", :alt=>"advert",:size=>"110x110" %></a>
+								<a href="#" title="themeforest" target="_blank"><%= image_tag "banner_4.jpg", :alt=>"advert",:size=>"110x110" %></a>
+                                <div class="small_link">
+                                    <div> 
+										<small><a href="#">Learn More About Advertising Here</a></small></div>
+									</div>
+                            </div>
+                            <!--/content -->
+                        </div>
+                        <!--/box -->
+                        <!--/box -->
+                         
+                    </div>
+                    <!--/rightcol -->
+                    
+                    
+                    <br class="fix" />
+                </div>
+            </div>
+        </div>
+        <!--/columns -->
+    </div>
+    <!--/page -->
+   
+   
+   
+   
+    <div id="page-bot">
+        <div class="footer_resize">
+            <div id="footer">
+                <div class="fl">
+                    &copy; CompanyName. All Rights Reserved</div>
+                <div class="fr">
+                    <strong>(DT)</strong> <a href="http://www.zedpost.ru">Website Templates</a></div>
+                <div class="clr">
+                </div>
+            </div>
+        </div>
+        <!--/footer -->
+    </div>
+    <!--/page-bot -->
+</body>
+</html>

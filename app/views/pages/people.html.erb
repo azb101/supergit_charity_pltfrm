@@ -1,0 +1,24 @@
+<br />
+
+
+<div class="box post" id="post-41">
+	<br />
+	<br />
+	<center><h2> People really looking forward for some help </h2></center>
+	 
+		<ul>
+			<% @i=0 %>
+			<% @donators.each do |don| %>
+			<li>
+				<h3>
+					<span width="width:10px;">
+						<%= @i+=1  %>
+					</span>
+					<span style="margin-left:20px;"> 
+						<%= don.name %> 
+					</span>
+				</h3>
+			</li>
+			<% end %>
+		</ul>
+</div>

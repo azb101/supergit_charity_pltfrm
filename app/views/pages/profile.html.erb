@@ -1,0 +1,23 @@
+
+
+<div class="box post">
+	<div>
+		<table style="margin:5px; padding:5px;">
+
+				<tr><th width=100> Name: </th> 		 <td> <%= current_user.name    %>  </td> </tr>
+				<tr><th> Surname: </th> 	 <td> <%= current_user.surname %> </td> </tr>
+				<tr><th> Age: </th> 		 <td><%= @age %>    </td> </tr>
+				<tr><th> Games played: </th> <td><%= @played %> </td> </tr>
+				<tr><th> Points: </th> 		 <td><%= current_user.points %> </td> </tr>
+				<tr><th> </th> <td>  </td> </tr>
+
+				<% if current_user.points > 0   %>
+					<tr><th></th><td><button style='background:Tan; width:200px; height:30px;'><%= link_to "Donate", :controller=>"donations", :action=>"donate" %> </button>  </td> </tr>
+				<% else %>
+					<% flash[:notice] = 'You have not any points' %>
+					<tr><th></th><td> <button style='background:Tan; width:200px; height:30px;'><%= link_to "Donate", :controller=>"pages", :action=>"profile" %> </button>  </td> </tr>
+				<% end %>
+				
+		</table>
+	</div>
+</div>
